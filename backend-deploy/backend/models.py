@@ -6,6 +6,7 @@ class DataForSimulation(BaseModel):
     name: str
     next_role: str
 
+
 class ChatMessage(BaseModel):
     message: str
     history: Optional[List[str]] = None
@@ -13,7 +14,7 @@ class ChatMessage(BaseModel):
 
 class FireEmployeeRequest(BaseModel):
     name: str
-    notes: Optional[str] = None  # optional manager notes
+    notes: Optional[str] = None
 
 
 class LetGoRequest(BaseModel):

@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, Float, Integer, ForeignKey
 from sqlalchemy.orm import relationship
-from database_management import Base
+from database.database_management import Base
 
 
 class Employees(Base):
@@ -9,17 +9,17 @@ class Employees(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
     role = Column(String)
-    experience_years = Column(Integer)          # was String — fixed to Integer
+    experience_years = Column(Integer)
     performance_rate = Column(Float)
-    leadership_score = Column(Float)            # was missing
-    creativity_score = Column(Float)            # was missing
+    leadership_score = Column(Float)
+    creativity_score = Column(Float)
     productivity_score = Column(Float)
     attendance = Column(Float)
     salary = Column(Float)
-    notes = Column(String, nullable=True)       # was missing — used by FIRING_EMPLOYEE_TEMPLATE
+    notes = Column(String, nullable=True)
 
     department_id = Column(Integer, ForeignKey("Departments.id"), index=True)
-    department = relationship("Departments", back_populates="members")  # fixed typo "Departements"
+    department = relationship("Departments", back_populates="members")
 
     team_id = Column(Integer, ForeignKey("Teams.id"), index=True)
     team = relationship("Teams", back_populates="members")

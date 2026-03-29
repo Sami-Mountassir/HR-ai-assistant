@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, Float, Integer
 from sqlalchemy.orm import relationship
-from database_management import Base
+from database.database_management import Base
 
 
 class Departments(Base):
@@ -10,4 +10,4 @@ class Departments(Base):
     name = Column(String)
     leader = Column(String)
     profit = Column(Float)
-    members = relationship("Employees", back_populates="department")  # back_populates matches Employees.department
+    members = relationship("Employees", back_populates="department")
